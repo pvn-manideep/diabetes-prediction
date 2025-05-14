@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Diabetes Prediction System</h1>
+
+        <form method="POST" action="/">
+            <label>Pregnancies:
+                <input type="number" name="pregnancies" required>
+                <small>Range: 0 – 17</small>
+            </label>
+
+            <label>Glucose (mg/dL):
+                <input type="number" name="glucose" required>
+                <small>Range: 70 – 200</small>
+            </label>
+
+            <label>Blood Pressure (mm Hg):
+                <input type="number" name="bloodpressure" required>
+                <small>Range: 60 – 120</small>
+            </label>
+
+            <label>Skin Thickness (mm):
+                <input type="number" name="skinthickness" required>
+                <small>Range: 10 – 50</small>
+            </label>
+
+            <label>Insulin (μU/mL):
+                <input type="number" name="insulin" required>
+                <small>Range: 16 – 276</small>
+            </label>
+
+            <label>BMI:
+                <input type="number" name="bmi" step="any" required>
+                <small>Range: 18.5 – 40+</small>
+            </label>
+
+            <label>Diabetes Pedigree Function:
+                <input type="number" name="diabetespedigree" step="any" required>
+                <small>Range: 0.1 – 2.5</small>
+            </label>
+
+            <label>Age:
+                <input type="number" name="age" required>
+                <small>Range: 21 – 80</small>
+            </label>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction is not none %}
+        <div class="result">
+            <h3>Prediction Result:</h3>
+            <p>The person is <strong>{{ prediction }}</strong> to have diabetes.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
